@@ -1,7 +1,3 @@
-# TwiiterR
-R과 Twitter 연동
-
-
 install.packages("base64enc")
 install.packages(c("RCurl","twitterR","ROAuth"))
 install.packages("Rcpp")
@@ -36,11 +32,11 @@ download.file(url="http://curl.haxx.se/ca/cacert.pem",destfile="cacert.pem")
 
 setup_twitter_oauth(consumerKey,consumerSecret,accesstoken,accesstokensecret)
 
-keyword <- "#카스"
+keyword <- "#하이트"
 
-search.tweets<-searchTwitter(enc2utf8(keyword),n=100,since='2016-01-01',lang="ko")
+search.tweets<-searchTwitter(enc2utf8(keyword),n=100,since='2014-01-01',lang="ko")
 
-
+search.tweets
 result.df <- twListToDF(search.tweets)
 result.text <- result.df$text
 
@@ -87,5 +83,5 @@ windowsFonts(malgun=windowsFont("Arial"))
  
 
 # 그리기 - min.freq를 너무 크게 설정하면 남겨지는 단어가 대폭 줄어들게 됨. 조절 필요 
-wordcloud(names(result_wordcount), freq=result_wordcount,scale=c(4,2), min.freq=3, random.order=F, rot.per=.1,
+wordcloud(names(result_wordcount), freq=result_wordcount,scale=c(4,0.5), min.freq=3, random.order=F, rot.per=.1,
 colors=pal, family="malgun")
