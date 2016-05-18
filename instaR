@@ -1,0 +1,17 @@
+
+
+ https://api.instagram.com/oauth/authorize?client_id=9d977e65ca2a48b0ac5a5d5dde4745a6&scope=basic&redirect_uri=http://localhost:1410&response_type=code
+
+
+https://api.instagram.com/oauth/authorize/?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=token
+
+https://api.instagram.com/oauth/authorize?client_id=9d977e65ca2a48b0ac5a5d5dde4745a6&scope=basic&redirect_uri= 	http://211.238.142.25:8080/&response_type=code
+
+
+
+
+require(instaR)
+my_app_client_id <- "9d977e65ca2a48b0ac5a5d5dde4745a6"
+my_app_client_secret <- "03cd6da980a14d9783aac1377a78bfed"
+
+my_app_OAuth<-instaOAuth(my_app_client_id,my_app_client_secret,scope="basic")
