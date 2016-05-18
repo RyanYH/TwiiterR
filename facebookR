@@ -1,0 +1,28 @@
+ https://www.facebook.com/dialog/oauth?client_id=266235143726797&redirect_uri=http://211.238.142.25:8080/
+
+
+http://211.238.142.25:8080/?code=AQA7MHSnx_plNv-fP-mTzGcjbaH9SOTRyQaksRxcZepk4NsbUqykUeOpxfTFauw2rI4bYZu0BBIONBFIcjJ90O7QFBCgNucFpdntZ8r85ZhqKoqouIYys7kjJ9M3lsXIfVJNe4Y3sTOZUbqzaFlt0xOHFVAiL1GLnTNT2UeZqMlzovWtu7fEID6t9HQQ1ePfyBvyK5BO3rsGr8EG5ORiVpVIq8J_nFNnKtfPZ38xUFTAydrHVkakXwvgtJsybpBgKaILOvNr7H7WLwLDcR86v9ZlEn32F_k2genu9DgtuMcLDV1AEbtYMePsvT0K4x5BQ7UY1OuYoYPYncY4YY1tj_DY#_=_
+
+
+https://graph.facebook.com/oauth/access_token?client_id=266235143726797&redirect_uri=http://211.238.142.25:8080/&client_secret=4442b4bd8b94de2152b7ba7807dac600&code=AQDqGz5sPmf-DuhNMt4-BBgYTAzMFsL_1o1S-JdzgWV0VJfpwNeCa91UzM0iPEFwxBq_eXa8Ikp46H1YjFE5N9d4eWfQ7_yLLMQ_uDQ3bkLIEjsY3T3GDHzj6Ob99Zi07nSnYtD9BXsQ4jDKa3qAx6SNUCz16pXbcvwEsDrAPUczfPn_teWEqunlC4Si9y4czL9N4Y-LfpiLXRubFcWqzs5BRRKGaosIZqo5Su2azGraFqx6eBdJUSdDcFOPSS84fdV4QoRwHGxZbyPpDJDRfWLiaUit83NsN-9dphz0YoSqnVwfqErjQ58CVGuUVQJNy4t7Zsazxi4VX64BxXYbibra&state=PoN83pb137#_=_
+
+access_token=EAADyI7MrJs0BALAAryElUz5ANoHC2d5eH3L9elZB3crjznPyZCGqecWkZBZBkJaNCuV1pWGEb3h9zfZCcCSUuK5ZCOQxuFuirV22J0ZAiRbD2fYo01n6PD0acYGEeOQjLM8LKr6xvE2vWccKv0wzk1ZAZC47B4TqrAHv60aHtmvxivwZDZD&expires=5183576
+
+
+https://graph.facebook.com/v1.0/search?q=facebook&type=post&access_token={EAADyI7MrJs0BALAAryElUz5ANoHC2d5eH3L9elZB3crjznPyZCGqecWkZBZBkJaNCuV1pWGEb3h9zfZCcCSUuK5ZCOQxuFuirV22J0ZAiRbD2fYo01n6PD0acYGEeOQjLM8LKr6xvE2vWccKv0wzk1ZAZC47B4TqrAHv60aHtmvxivwZDZD&exp
+ires=5183576}
+
+
+
+library(Rfacebook)
+fb_oauth=fbOAuth("266235143726797", "4442b4bd8b94de2152b7ba7807dac600", extended_permissions = FALSE,legacy_permissions = FALSE)
+save(fb_oauth, file="fb_oauth")
+load("fb_oauth")
+me <- getUsers("me", token=fb_oauth)
+me$username
+
+keyword <- enc2utf8("하이트")
+posts <- searchPages( string=keyword, token=fb_oauth, n=50)
+posts[name,]
+
+post<-getPost(post, fb_oauth, n = 50, comments = TRUE, likes = TRUE,n.likes = 10, n.comments = 10)
